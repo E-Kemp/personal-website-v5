@@ -1,4 +1,4 @@
-FROM node:18-alpine AS build
+FROM node:18-alpine
 
 WORKDIR /app
 
@@ -11,9 +11,13 @@ COPY . .
 
 RUN yarn build
 
-FROM nginx:1.18-alpine AS deploy
+EXPOSE 80
 
-WORKDIR /usr/share/nginx/html
-RUN rm -rf ./*
-COPY --from=build /app/public .
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+CMD gatsby serve --port 80 --host 0.0.0.0
+
+# FROM nginx:1.18-alpine AS deploy
+
+# WORKDIR /usr/share/nginx/html
+# RUN rm -rf ./*
+# COPY --from=build /app/public .
+# ENTRYPOINT ["nginx", "-g", "daemon off;"]

@@ -5,8 +5,7 @@ import theme from './theme'
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: 'Personal Site',
-    siteUrl: 'https://www.yourdomain.tld'
+    title: 'Personal Site'
   },
 
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
